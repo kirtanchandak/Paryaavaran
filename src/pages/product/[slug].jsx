@@ -10,10 +10,10 @@ function ProductScreen() {
   const { slug } = query;
   const product = data.products.find((x) => x.slug === slug);
   if (!product) {
-    <div>Product Not Found!</div>;
+    return <div>Product Not Found!</div>;
   }
   return (
-    <Layout title={product.title}>
+    <Layout title={product.name}>
       <div className="py-2">
         <Link href="/">back to products</Link>
       </div>

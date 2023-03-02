@@ -3,11 +3,11 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Head from "next/head";
 
-function Layout({ children }) {
+function Layout({ title, children }) {
   return (
     <>
       <Head>
-        <title>Paryaavaran</title>
+        <title>{title ? title + " - Paryaavaran" : "Paryaavaran"}</title>
         <meta name="description" content="Eco-Friendly Shopping App" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

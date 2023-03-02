@@ -13,7 +13,7 @@ function ProductScreen() {
     <div>Product Not Found!</div>;
   }
   return (
-    <Layout title={product.name}>
+    <Layout title={product.title}>
       <div className="py-2">
         <Link href="/">back to products</Link>
       </div>

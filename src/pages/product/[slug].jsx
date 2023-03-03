@@ -1,14 +1,17 @@
 import Layout from "@/components/Layout";
 import data from "@/utils/data";
-import React from "react";
+import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
+import { ShopContext } from "@/utils/Store";
 
 function ProductScreen() {
   const { query } = useRouter();
   const { slug } = query;
   const product = data.products.find((x) => x.slug === slug);
+
+  const { addToCart } = useContext(ShopContext);
   if (!product) {
     return <div>Product Not Found!</div>;
   }
@@ -48,7 +51,14 @@ function ProductScreen() {
               <div>Status:</div>
               <div>{product.countInStock > 0 ? "In Stock" : "Unavaliable"}</div>
             </div>
-            <div className="primary-btn w-full">Add to Cart</div>
+            <div
+              className="primary-btn w-full"
+              onClick={() => {
+                addToCart(product.id);
+              }}
+            >
+              Add to Cart
+            </div>
           </div>
         </div>
       </div>

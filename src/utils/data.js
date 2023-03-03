@@ -1,6 +1,7 @@
 const data = {
   products: [
     {
+      id: 1,
       name: "Bamboo Toothbrush",
       slug: "bamboo-toothbrush",
       category: "Bamboo",
@@ -13,6 +14,7 @@ const data = {
       description: "Eco-Friendly Bamboo Toothbrush",
     },
     {
+      id: 2,
       name: "Paper Bag",
       slug: "paper-bag",
       category: "Paper",
@@ -25,6 +27,7 @@ const data = {
       description: "Eco-Friendly Bamboo Toothbrush",
     },
     {
+      id: 3,
       name: "Bamboo Toothbrush",
       slug: "bamboo-toothbr",
       category: "Bamboo",
@@ -37,8 +40,9 @@ const data = {
       description: "Eco-Friendly Bamboo Toothbrush",
     },
     {
+      id: 4,
       name: "Bamboo Toothbrush",
-      slug: "bamboo-toothbr",
+      slug: "bamboo-to",
       category: "Bamboo",
       image: "/./images/paper-bag.jpg",
       price: 70,

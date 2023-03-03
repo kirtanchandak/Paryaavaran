@@ -1,8 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useContext } from "react";
+import { ShopContext } from "@/utils/Store";
 
 function ProductItem({ product }) {
+  const { addToCart, cartItems } = useContext(ShopContext);
+  const cartItemCount = cartItems[product.id];
   return (
     <div legacyBehavior className="card">
       <Link href={`/product/${product.slug}`}>
@@ -20,7 +24,9 @@ function ProductItem({ product }) {
         </Link>
         <p className="mb-2">{product.brand}</p>
         <p>₹{product.price}</p>
-        <button className="primary-btn">Add to Cart</button>
+        <button className="primary-btn" onClick={() => addToCart(product.id)}>
+          Add to Cart {cartItemCount > 0 && <> ({cartItemCount})</>}
+        </button>
       </div>
     </div>
   );

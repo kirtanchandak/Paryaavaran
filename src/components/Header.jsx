@@ -9,7 +9,7 @@ function Header() {
           <p className="text-lg font-bold">Paryaavaran</p>
         </Link>
         <div className="flex space-x-3">
-          <Link href="/cart">
+          <Link href="/Cart">
             <p>Cart</p>
           </Link>
           <Link href="/login">

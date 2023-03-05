@@ -8,7 +8,7 @@ function CartItem({ product }) {
     useContext(ShopContext);
   const cartItemCount = cartItems[product.id];
   return (
-    <div className="flex">
+    <div className="">
       <div className="flex flex-col bg-gray-200 justify-center m-5 rounded h-52 w-[380px] shadow-xl">
         <div className="flex">
           <Image

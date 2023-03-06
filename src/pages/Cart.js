@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import data from "@/utils/data";
 import CartItem from "@/components/CartItem";
 import { ShopContext } from "@/utils/Store";
 import { useContext } from "react";
 import Layout from "@/components/Layout";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+import router from "next/router";
 
 function Cart({ product }) {
   const { cartItems, getTotalCartAmount } = useContext(ShopContext);
@@ -28,7 +30,12 @@ function Cart({ product }) {
                 <button className="cart-btn">Continue Shopping</button>
               </Link>
 
-              <button className="cart-btn">Checkout</button>
+              <button
+                className="cart-btn"
+                onClick={() => router.push("login?redirect=/shipping")}
+              >
+                Checkout
+              </button>
             </div>
           </div>
         </div>
@@ -37,4 +44,4 @@ function Cart({ product }) {
   );
 }
 
-export default Cart;
+export default dynamic(() => Promise.resolve(Cart), { ssr: false });

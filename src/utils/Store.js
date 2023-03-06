@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createContext, useState } from "react";
 import data from "./data";
+import Cookies from "js-cookie";
 
 export const ShopContext = createContext(null);
 

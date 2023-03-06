@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import { useContext } from "react";
 import { ShopContext } from "@/utils/Store";
+import { useEffect } from "react";
+import dynamic from "next/dynamic";
 
 function CartItem({ product }) {
   const { cartItems, addToCart, removeFromCart, updateCartItemCount } =
@@ -50,4 +52,4 @@ function CartItem({ product }) {
   );
 }
 
-export default CartItem;
+export default dynamic(() => Promise.resolve(CartItem), { ssr: false });

@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import { useContext } from "react";
 import { ShopContext } from "@/utils/Store";
-import { useEffect } from "react";
 import dynamic from "next/dynamic";
 
 function CartItem({ product }) {

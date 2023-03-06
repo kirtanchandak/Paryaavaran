@@ -61,7 +61,8 @@ function LoginScreen() {
             <button className="primary-btn">Login</button>
           </div>
           <h1 className="font-bold mt-3">
-            Don't have an account? <Link href="/register">Register</Link>
+            Don&apos;t have an account? &nbsp;
+            <Link href="/register">Register</Link>
           </h1>
         </form>
       </Layout>

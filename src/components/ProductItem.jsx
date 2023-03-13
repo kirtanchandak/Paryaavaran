@@ -8,7 +8,7 @@ function ProductItem({ product }) {
   const { addToCart, cartItems } = useContext(ShopContext);
   const cartItemCount = cartItems[product.id];
   return (
-    <div legacyBehavior className="card">
+    <div legacybehavior="true" className="card">
       <Link href={`/product/${product.slug}`}>
         <Image
           src={product.image}

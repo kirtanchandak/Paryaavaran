@@ -2,18 +2,26 @@ import Layout from "@/components/Layout";
 import React, { useEffect } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import { signIn } from "next-auth/client";
+import { signIn } from "next-auth/react";
 import { toast } from "react-toastify";
-import getError from "@/utils/getError";
-import { useSession } from "next-auth/client";
+import { getError } from "@/utils/error";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 function LoginScreen() {
   const { data: session } = useSession();
 
-  useEffect()  const {
+  const router = useRouter();
+  const { redirect } = router.query;
+
+  useEffect(() => {
+    if (session?.user) {
+      router.push(redirect || "/");
+    }
+  }, [router, session, redirect]);
+  const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
   const submitHandler = async ({ email, password }) => {

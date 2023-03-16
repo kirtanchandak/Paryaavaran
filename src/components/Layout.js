@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import Head from "next/head";
+import { ToastContainer } from "react-toastify";
 
 function Layout({ title, children }) {
   return (
@@ -12,6 +13,7 @@ function Layout({ title, children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <ToastContainer position="bottom-center" limit={1} />
       <div className="flex flex-col min-h-screen justify-between ">
         <header>
           <Header />

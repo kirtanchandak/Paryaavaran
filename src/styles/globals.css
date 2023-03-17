@@ -13,3 +13,7 @@
 .cart-btn {
   @apply hover:bg-green-500 shadow outline-none px-2 py-1 bg-green-300 rounded 
 }
+
+.dropdown-link {
+  @apply flex p-2 hover:bg-gray-200
+}

@@ -1,9 +1,12 @@
 import React from "react";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
+import { Menu } from "@headlessui/react";
+import DropDownLink from "./DropDownLink";
 
 function Header() {
   const { status, data: session } = useSession();
+
   return (
     <div>
       <nav className="flex justify-between h-12 items-center px-4 bg-green-500">
@@ -17,9 +20,26 @@ function Header() {
           {status === "loading" ? (
             "Loading..."
           ) : session?.user ? (
-            <Link href="/">
-              <p>{session.user.name}</p>
-            </Link>
+            <Menu as="div" className="relative inline-block p-2">
+              <Menu.Button>{session.user.name}</Menu.Button>
+              <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white shadow-lg">
+                <Menu.Item>
+                  <DropDownLink className="dropdown-link" href="/profile">
+                    Profile
+                  </DropDownLink>
+                </Menu.Item>
+                <Menu.Item>
+                  <DropDownLink className="dropdown-link" href="/order-history">
+                    Order History
+                  </DropDownLink>
+                </Menu.Item>
+                <Menu.Item>
+                  <a href="#" className="dropdown-link">
+                    Logout
+                  </a>
+                </Menu.Item>
+              </Menu.Items>
+            </Menu>
           ) : (
             <Link href="/login">
               <p className="p-2">Login</p>

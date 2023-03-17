@@ -6,7 +6,9 @@ import DropDownLink from "./DropDownLink";
 
 function Header() {
   const { status, data: session } = useSession();
-
+  const signOutHandeler = () => {
+    signOut({ callbackUrl: "/" });
+  };
   return (
     <div>
       <nav className="flex justify-between h-12 items-center px-4 bg-green-500">
@@ -34,7 +36,11 @@ function Header() {
                   </DropDownLink>
                 </Menu.Item>
                 <Menu.Item>
-                  <a href="#" className="dropdown-link">
+                  <a
+                    href="#"
+                    className="dropdown-link"
+                    onClick={signOutHandeler}
+                  >
                     Logout
                   </a>
                 </Menu.Item>

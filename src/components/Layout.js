@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Head from "next/head";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Layout({ title, children }) {
   return (

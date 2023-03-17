@@ -2,10 +2,9 @@ import Layout from "@/components/Layout";
 import React, { useEffect } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 import { getError } from "@/utils/error";
-import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
 function LoginScreen() {
@@ -31,11 +30,11 @@ function LoginScreen() {
         email,
         password,
       });
-      if (result.err) {
-        toast.error(result.err);
+      if (result.error) {
+        toast.error(result.error);
       }
-    } catch (err) {
-      toast.error(getError(err));
+    } catch (error) {
+      toast.error(getError(error));
     }
   };
   return (
